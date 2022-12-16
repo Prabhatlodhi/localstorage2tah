@@ -1,0 +1,29 @@
+const inputBox = document.querySelector('[type="text"]');
+const inputEmail = document.querySelector('[type="email"]');
+const Submit = document.querySelector('[type="submit"]');
+
+
+Submit.addEventListener('submit', Submittingdata );
+
+let arr = JSON.parse(localStorage.getItem('tasks'));
+
+if(!arr){
+    arr=[]
+}
+
+function Submittingdata (e) {
+    e.preventDefault();
+
+    let x = inputBox.value;
+    let y = inputEmail.value;
+
+    arr.push({
+        inputBox1 :x,
+        inputEmail:y
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(arr));
+    
+};
+
+console.log(arr)
